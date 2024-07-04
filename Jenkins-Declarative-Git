@@ -17,9 +17,9 @@ pipeline {
                sshagent(['dev-server']) {
                     sh """
                           scp -o StrictHostKeyChecking=no target/myweb.war ubuntu@13.235.242.154:/opt/tomcat8/webapps/
-                        ssh ubuntu@13.235.242.154:/opt/tomcat8/bin/shutdown.sh
-                        ssh ubuntu@13.235.242.154:/opt/tomcat8/bin/startup.sh
-                        """ 
+                          ssh ubuntu@13.235.242.154 /opt/tomcat8/bin/shutdown.sh
+                          ssh ubuntu@13.235.242.154 /opt/tomcat8/bin/startup.sh
+                    """ 
               }
             }                
         }
